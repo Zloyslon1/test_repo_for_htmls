@@ -1,239 +1,332 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>&#x1F504; Почему из года в год в жизни ничего не меняется</title>
-<style>
-/* Notion-like base styles */
-html {
-  -webkit-print-color-adjust: exact;
-}
-* {
-  box-sizing: border-box;
-  -webkit-print-color-adjust: exact;
-}
-html, body {
-  margin: 0;
-  padding: 0;
-}
-body {
-  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
-  line-height: 1.5;
-  white-space: normal;
-  color: rgb(55, 53, 47);
-    font-size: 2rem;
-}
-@media only screen {
-  body {
-    margin: 0 auto;
-    max-width: 100%;
-    padding: 0 5% 2em 5%;
-  }
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Почему я тащу всё на себе и как начать жить иначе?</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@18.2.0",
+        "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+        "lucide-react": "https://esm.sh/lucide-react@0.344.0"
+      }
+    }
+  </script>
 
-/* Links */
-a, a:visited {
-  color: inherit;
-  text-decoration: underline;
-}
-
-/* Headings */
-h1, h2, h3 {
-  letter-spacing: -0.01em;
-  line-height: 1.2;
-  font-weight: 600;
-  margin-bottom: 0;
-}
-h1 strong, h2 strong, h3 strong {
-  font-weight: 600;
-}
-
-.page-title {
-  font-size: 4.8rem;
-  font-weight: 700;
-  margin-top: 0;
-  margin-bottom: 0.5em;
-}
-
-h1 { font-size: 3.5rem; margin-top: 2.2rem; }
-h2 { font-size: 3rem; margin-top: 1.85rem; }
-h3 { font-size: 2.5rem; margin-top: 1.55rem; }
-
-/* Page description placeholder */
-.page-description {
-  margin-bottom: 0;
-}
-
-/* Callouts - Notion style with light gray background */
-.callout {
-  border-radius: 10px;
-  padding: 1rem 1rem 1rem 1rem;
-  background: rgb(241, 241, 239);
-  margin: 0.5em 0;
-  white-space: normal;
-  display: flex;
-}
-.callout p {
-  margin: 0;
-}
-.callout h1, .callout h2, .callout h3 {
-  margin: 0 0 0.6rem;
-}
-
-/* Blockquotes - Notion style with left border */
-blockquote {
-  margin: 0.5em 0;
-  padding: 0.3em 0 0.3em 1em;
-  border-left: 3px solid currentColor;
-  font-size: inherit;
-}
-blockquote p {
-  margin: 0;
-}
-
-/* Horizontal rule */
-hr {
-  background: transparent;
-  display: block;
-  width: 100%;
-  height: 1px;
-  visibility: visible;
-  border: none;
-  border-bottom: 1px solid rgba(55, 53, 47, 0.09);
-  margin: 1em 0;
-}
-
-/* Lists */
-ol, ul {
-  margin: 0;
-  margin-block-start: 0.6em;
-  margin-block-end: 0.6em;
-}
-ul > li {
-  list-style: disc;
-}
-ul {
-  padding-inline-start: 1.7em;
-}
-ul > li {
-  padding-left: 0.1em;
-}
-
-/* Paragraphs */
-p {
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-}
-
-/* Mark - background highlight */
-mark {
-  background-color: transparent;
-}
-.highlight-default_background {
-  background-color: transparent;
-}
-
-/* Images */
-img {
-  max-width: 100%;
-}
-
-/* Icon */
-.icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  max-width: 1.2em;
-  max-height: 1.2em;
-  text-decoration: none;
-  vertical-align: text-bottom;
-  margin-right: 0.5em;
-}
-
-/* Page header icon */
-.page-header-icon {
-  font-size: 4.8rem;
-  margin-bottom: 1rem;
-}
-
-/* Source */
-.source {
-  border: 1px solid #ddd;
-  border-radius: 3px;
-  padding: 1.5em;
-  word-break: break-all;
-}
-
-/* Figures */
-figure {
-  margin: 1.25em 0;
-  page-break-inside: avoid;
-}
-
-/* Display contents wrapper */
-div[style*="display:contents"] {
-  display: contents;
-}
-
-/* Responsive */
-@media (max-width: 720px) {
-  body {
-    padding: 0 4%;
-  }
-  .page-title {
-    font-size: 4rem;
-  }
-}
-
-/* Print */
-@media only print {
-  img {
-    max-height: 100vh;
-    object-fit: contain;
-  }
-}
-@page {
-  margin: 1in;
-}
-
-/* Footer */
-.sans {
-  font-size: 14px;
-  padding-top: 2em;
-}
-
-article {
-  margin: 0;
-  padding: 0;
-}
-header {
-  margin: 0;
-  padding: 0;
-}
-.page-description:empty {
-  display: none;
-}
-
-
-/* FORCE no top gap */
-html, body, article, header, .page-body, .page-title {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-}
-article.page {
-  padding-top: 0.81em !important;
-}
-
-.callout, blockquote, .page-body p, .page-body li {
-  white-space: pre-wrap;
-}
-
-article.page {
-  padding-bottom: 2.43em !important;
-}
-</style>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
-<body><article id="2ff287db-8e0b-8043-af11-d65f316ee332" class="page sans"><header><h1 class="page-title" dir="auto"><strong>&#x1F504; Почему из года в год в жизни ничего не меняется</strong></h1></header><div class="page-body"><div style="display:contents" dir="auto"><p id="2ff287db-8e0b-80c1-bc30-de8e5bf06e48" class="">Бывает так: меняются обстоятельства, люди, работа, а внутри ощущение замкнутого круга.</p></div><div style="display:contents" dir="ltr"><figure class="callout" style="white-space:pre-wrap;display:flex" id="2ff287db-8e0b-8176-9b5c-d818fc11e407"><div style="width:100%"><div style="display:contents" dir="auto"><p id="2ff287db-8e0b-81b2-8516-f8440f55982f" class="">Сначала кажется, что просто не повезло или в этой компании были плохие условия. Проходит время, и снова та же история. Отношения идут по одному сценарию, на работе те же тупики. Появляется усталость и чувство беспомощности.</p></div></div></figure></div><div style="display:contents" dir="auto"><h3 id="2ff287db-8e0b-812f-912e-cc597496b60e" class="">&#x1F4CC; Из этой статьи вы узнаете:</h3></div><div style="display:contents" dir="auto"><ul id="2ff287db-8e0b-8166-a83c-d43001380efc" class="bulleted-list"><li style="list-style-type:disc">Почему <strong>повторяются одни и те же ситуации</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2ff287db-8e0b-8187-8151-fdecd6b252b0" class="bulleted-list"><li style="list-style-type:disc"> <strong>Три главные стратегии</strong>, которые держат в замкнутом круге </li></ul></div><div style="display:contents" dir="auto"><ul id="2ff287db-8e0b-81a0-98b7-e2e62a600380" class="bulleted-list"><li style="list-style-type:disc"> Как <strong>распознать</strong> свой сценарий и начать менять жизнь</li></ul></div><div style="display:contents" dir="auto"><h3 id="2ff287db-8e0b-80f9-a7ea-f83bf883694a" class=""><strong>Почему жизнь возвращает в одну точку</strong></h3></div><div style="display:contents" dir="auto"><p id="f7dacaa4-3c4d-4195-9b74-f19159af5098" class="">Дело не в судьбе и не в невезении. В прошлых статьях мы разобрали, как формируются повторяющиеся реакции и сценарии поведения. Теперь посмотрим, как эти автоматические реакции складываются в комплексные жизненные стратегии.</p></div><div style="display:contents" dir="auto"><blockquote id="ddfed9ab-8f06-46b9-8194-751fd02ba055" class="">Разберём три самых распространённых.</blockquote></div><div style="display:contents" dir="auto"><hr id="2ff287db-8e0b-81f0-b932-ffeb1120d62f"/></div><div style="display:contents" dir="auto"><h3 id="2ff287db-8e0b-8143-b793-f02f4346c297" class=""><strong>&#x1F6DF; Стратегия №1: «Я должна всех спасать»</strong></h3></div><div style="display:contents" dir="auto"><h3 id="2ff287db-8e0b-816c-9acd-cad193553f9d" class=""><strong>Как это проявляется в жизни</strong></h3></div><div style="display:contents" dir="auto"><p id="dc40e1cb-4606-4422-b6bc-93ca6d7b4ab1" class=""><strong>Часто это выглядит так: </strong>человек становится тем, на кого можно положиться в любой ситуации. На работе передают чужие задачи, просят задержаться, взять дополнительную ответственность. Отказ автоматически вызывает чувство вины, будто подводишь людей.</p></div><div style="display:contents" dir="auto"><p id="4cdc2e8f-2bd3-47bd-9060-8f9a2efe07d5" class="">Со временем включённость <strong>перестаёт восприниматься как ценность и становится нормой, которую просто ждут. </strong>Работа идёт больше, усталость сильнее, но это не ведёт ни к росту дохода, ни к признанию.</p></div><div style="display:contents" dir="auto"><h3 id="2ff287db-8e0b-80d5-8562-ce1b8b8f5aee" class=""><strong>Что может крутиться в голове:</strong></h3></div><div style="display:contents" dir="auto"><ul id="e35cbec5-f64f-4c86-96a6-5ad0b9fa8fd6" class="bulleted-list"><li style="list-style-type:disc"><em>«Если я сейчас не вмешаюсь, всё рухнет».</em></li></ul></div><div style="display:contents" dir="auto"><ul id="2ff287db-8e0b-802e-ba13-fd4c3bd6ed06" class="bulleted-list"><li style="list-style-type:disc"><em>«Никто не сделает это так хорошо, лучше сама».</em></li></ul></div><div style="display:contents" dir="auto"><ul id="2ff287db-8e0b-8051-9cf5-c45878eb3633" class="bulleted-list"><li style="list-style-type:disc"><em>«Я должна быть сильной, на мне всё держится».</em></li></ul></div><div style="display:contents" dir="auto"><h3 id="2ff287db-8e0b-80a9-9d9e-ce6de24ad200" class=""><strong>Что может стоять за этим</strong></h3></div><div style="display:contents" dir="auto"><p id="dc475b11-d159-4f40-a5ea-ae38695093a1" class="">За этой стратегией ч<strong>асто прячутся скрытые потребности</strong>. Это может быть потребность в контроле, когда пока они беспомощны, решение за тобой и власть остаётся через заботу.</p></div><div style="display:contents" dir="auto"><p id="8684e098-537a-4b49-b59b-ac3289d83873" class="">Или <strong>«покупка любви»</strong>: когда не верится, что можно любить просто так. Кажется, что ценят только за пользу, а если перестанешь быть полезной, то обязательно бросят.</p></div><div style="display:contents" dir="auto"><h3 id="2ff287db-8e0b-80f3-b2e7-de5d8f8778f5" class=""><strong>Что важно понять</strong></h3></div><div style="display:contents" dir="auto"><p id="af73173a-1692-4b6a-8cbc-3eefbf1c32ee" class="">Люди пользуются не потому что циничные или плохие. Они просто <strong>принимают как должное то, к чему уже привыкли.</strong> Эту динамику вы создаёте своими руками, хотя, возможно, даже не осознаёте этого.</p></div><div style="display:contents" dir="auto"><p id="7911f7e0-330a-4bb2-8555-0edfb2226bdb" class=""><strong>&#x1F494; Самое обидное и несправедливое здесь вот что:</strong> где-то внутри живёт ожидание благодарности и признания. Кажется, что обязательно наступит день, когда все скажут: «Какая вы молодец, как нам помогали, мы вам так благодарны, обязательно придём на помощь, когда будет нужно».</p></div><div style="display:contents" dir="auto"><p id="7bc656e2-dc45-422c-abe9-f8b7f0f1436a" class="">Разочарование приходит с пониманием, что никто не оценит эти жертвы и вложения так, как ожидалось. В тот момент, когда вам самим плохо или нужна помощь, люди искренне удивляются, что вы тоже человек, которому может быть нужна поддержка. Для них это открытие, потому что они просто не привыкли видеть вас в такой роли.</p></div><div style="display:contents" dir="ltr"><figure class="callout" style="white-space:pre-wrap;display:flex" id="2ff287db-8e0b-8181-a6e5-e80bb5c56b22"><div style="width:100%"><div style="display:contents" dir="auto"><p id="2ff287db-8e0b-81df-8221-e06e53b68e3c" class="">Пока вы живёте на автопилоте и не осознаёте этого, привычка продолжает влиять на ощущение отношений. <strong>Баланс «брать-давать» нарушен: </strong><em>вы даёте всю себя, не получая взамен того, что нужно. В этом и есть внутренний конфликт.</em></p></div></div></figure></div><div style="display:contents" dir="auto"><p id="2ff287db-8e0b-8057-aa2d-d2570d9a1002" class="">
-</p></div><div style="display:contents" dir="auto"><p id="2ff287db-8e0b-817a-a05f-e9ad61ac013a" class=""><em>Если хотите с этим разобраться, прочитайте этот разбор до конца.<br/></em></p></div><div style="display:contents" dir="auto"><hr id="2ff287db-8e0b-813b-b140-e8913eb4b48c"/></div><div style="display:contents" dir="auto"><h3 id="2ff287db-8e0b-8190-a50a-ca00fa3d1af9" class="">&#x1F44E; <strong>Стратегия №2: «Я недостаточно хорошая»</strong></h3></div><div style="display:contents" dir="auto"><h3 id="2ff287db-8e0b-80e6-b1a0-f52684441c36" class=""><strong>Как это проявляется в жизни</strong></h3></div><div style="display:contents" dir="auto"><p id="8f781265-5ade-4096-a574-c8918c124030" class=""><strong>В этой стратегии можно заметить: </strong>вы стараетесь быть удобной, понимающей, терпеливой. Сглаживаете острые углы и стараетесь не предъявлять требований. Перегружаете себя работой и заботами, чтобы заслужить одобрение.</p></div><div style="display:contents" dir="auto"><blockquote id="4eb4c579-acf4-4553-9a45-2eedd5945aed" class="">Внутри живёт уверенность, что любовь нужно заработать. Если вдруг покажете недовольство или устанете стараться, могут разлюбить или отвергнуть.</blockquote></div><div style="display:contents" dir="auto"><p id="736fdf49-49c7-4da9-a57e-ce23d7fa8c4d" class=""><em>Даже находясь в хороших отношениях, вы почему-то чувствуете себя недостаточно счастливой. Постоянно сравниваете себя с другими женщинами и ищете в себе изъяны.</em></p></div><div style="display:contents" dir="auto"><h3 id="2ff287db-8e0b-8002-a44b-da8372f56137" class=""><strong>Что может крутиться в голове:</strong></h3></div><div style="display:contents" dir="auto"><p id="2ff287db-8e0b-80b7-ada3-c6bc14216919" class="">Возможно, вам знакомы эти мысли:</p></div><div style="display:contents" dir="auto"><ul id="2ff287db-8e0b-8079-ac57-f2ee720d2722" class="bulleted-list"><li style="list-style-type:disc"><em>«Так, он нахмурился. Это я что-то не то сказала? Надо срочно загладить».</em></li></ul></div><div style="display:contents" dir="auto"><ul id="2ff287db-8e0b-8055-9ee6-e18e191c15e8" class="bulleted-list"><li style="list-style-type:disc"><em>«Если я откажу, она обидится и решит, что я стерва. Лучше потерплю, зато мир сохраню».</em></li></ul></div><div style="display:contents" dir="auto"><ul id="2ff287db-8e0b-80eb-b37c-ca4e731162f5" class="bulleted-list"><li style="list-style-type:disc"><em>«Я пока не имею права на отдых, повышение или любовь. Мне надо ещё успеть кучу дел и похудеть на пять кило. Вот тогда можно».</em></li></ul></div><div style="display:contents" dir="auto"><h3 id="2ff287db-8e0b-8020-8c57-d19a45e1909e" class=""><strong>Что может происходить на самом деле</strong></h3></div><div style="display:contents" dir="auto"><p id="be31817f-6401-43e9-b29b-874d1bfb4c2e" class="">Этот сценарий часто рождается в семьях, где одобрение и любовь зависели от соответствия ожиданиям. <strong>Тепло получали только если вели себя «правильно», не капризничали и не расстраивали взрослых.</strong></p></div><div style="display:contents" dir="auto"><p id="e5e1c773-35d2-4ebd-b569-5a856290e139" class="">Во взрослом возрасте вы можете постоянно напрягаться, чтобы заслужить близость, и боитесь показать настоящую себя, потому что где-то внутри живёт убеждение: <em>«Если меня узнают такой, какая я есть, меня не будут любить».</em></p></div><div style="display:contents" dir="auto"><p id="721f1ae4-0d9e-4efc-b0c8-fc1f1a55d6b8" class="">Получается постоянный режим доказательства своей ценности. Вы берёте на себя лишнее, чтобы быть «достаточно хорошей», но планка почему-то постоянно поднимается выше.</p></div><div style="display:contents" dir="ltr"><figure class="callout" style="white-space:pre-wrap;display:flex" id="2ff287db-8e0b-8168-aa2a-d465b4e96aca"><div style="width:100%"><div style="display:contents" dir="auto"><p id="2ff287db-8e0b-8155-8e35-d52e8b005049" class="">&#x1F3C6; В итоге вся жизнь превращается <strong>в гонку за вечным идеалом, который постоянно ускользает. </strong>Планка повышается, повышается, и от этого живёте в постоянном недовольстве собой. Проходят годы, недовольство копится, а кажется, что ничего не случилось. Всё время проведено в постоянном неврозе и режиме доказательства своей ценности, а того момента, когда можно наконец выдохнуть, так и не наступает.</p></div></div></figure></div><div style="display:contents" dir="auto"><h3 id="2ff287db-8e0b-8051-bedc-ed57508355e4" class=""><strong>Что важно понять</strong></h3></div><div style="display:contents" dir="auto"><p id="2ff287db-8e0b-8040-a10b-d6d9c8038f1d" class="">&#x1F628; За этой стратегией часто стоит глубокий страх отвержения. Не верится, что вы достойны любви просто за то, что существуете.</p></div><div style="display:contents" dir="auto"><blockquote id="2ff287db-8e0b-8015-a402-f999a65055c1" class=""><em>Постоянная тревога съедает все силы: «А вдруг я недостаточно стараюсь? А вдруг меня бросят?».</em></blockquote></div><div style="display:contents" dir="auto"><p id="0b37ebb7-26f7-4be6-a4f4-736070ccf769" class="">Сколько бы вы ни старались, внутреннее ощущение «я плохая» никуда не уходит. Проблема не в действиях, а в глубинном убеждении.</p></div><div style="display:contents" dir="auto"><p id="afd8c94d-62f1-484b-862a-337f6f1dcf13" class="">Вот здесь важный момент: когда этот сценарий поведения становится осознанным, появляется пространство для выбора. <strong>Вы начинаете замечать и можете задать себе вопрос: это мой реальный выбор или просто привычный сценарий поведения?</strong></p></div><div style="display:contents" dir="auto"><hr id="2ff287db-8e0b-8141-83aa-f478151ed5c2"/></div><div style="display:contents" dir="auto"><h3 id="2ff287db-8e0b-81c5-a12d-dff116765b5c" class=""> &#x1F4C4; <strong>Стратегия №3: «Вечный черновик»</strong></h3></div><div style="display:contents" dir="auto"><h3 id="2ff287db-8e0b-809e-ab61-ca0a591ae9fd" class=""><strong>Как это проявляется в жизни</strong></h3></div><div style="display:contents" dir="auto"><p id="2ff287db-8e0b-80f8-a3a1-d69dbbc4931f" class="">Возможно, вы узнаете себя в этом. Эта стратегия заключается в том, что кажется: что-то ценное или важное может случиться, только если обязательно соответствовать какому-то условию. Поэтому всё откладывается.</p></div><div style="display:contents" dir="auto"><p id="2ff287db-8e0b-80c3-af7c-f5a579ad7b49" class="">&#x2615; Вспомните бабушкин сервант с торжественной посудой, которую всегда берегли для особенного случая, но в итоге из неё ни разу не ели и не пили. Или покупку красивой одежды на праздничный день, которую в итоге так и не надели. Вот эта привычка откладывать что-то до какого-то идеального момента и есть жизнь в черновике.</p></div><div style="display:contents" dir="auto"><blockquote id="2ff287db-8e0b-80b3-862d-fdfebe5e3233" class=""><strong>Вы постоянно готовитесь к жизни, но почему-то не начинаете жить. Откладываете важные решения на потом.</strong></blockquote></div><div style="display:contents" dir="auto"><ul id="0e33140e-4e1f-4017-b3b4-1f302c3a8395" class="bulleted-list"><li style="list-style-type:disc"><em>«Вот похудею на пять кило, тогда пойду на свидания».</em></li></ul></div><div style="display:contents" dir="auto"><ul id="2ff287db-8e0b-8094-b277-e255de33134e" class="bulleted-list"><li style="list-style-type:disc"><em>«Мне нужно пройти ещё этот курс и получить пятый диплом. Вот тогда смогу наконец назвать себя специалистом».</em></li></ul></div><div style="display:contents" dir="auto"><ul id="2ff287db-8e0b-8046-9cb7-ed53f601886c" class="bulleted-list"><li style="list-style-type:disc"><em>Вы боитесь начать, потому что внутри звучит: «Куда мне лезть? Там такие профессионалы, а я кто?».</em></li></ul></div><div style="display:contents" dir="auto"><ul id="2ff287db-8e0b-806a-af2d-f5357eb5ac29" class="bulleted-list"><li style="list-style-type:disc"><em>Даже когда что-то получается, думаете: «Это случайно. Мне просто повезло. Сейчас все узнают, что я на самом деле ничего не умею».</em></li></ul></div><div style="display:contents" dir="auto"><h3 id="2ff287db-8e0b-8050-b6eb-c03cbe98e4d1" class=""><strong>Что может происходить на самом деле</strong></h3></div><div style="display:contents" dir="auto"><p id="0dbd07e7-01a4-4c87-b097-72b017d5fa11" class="">За этой стратегией часто стоит <strong>глубокий страх провала и осуждения</strong>. Проблема в том, что вы боитесь попробовать, и кажется, что если идеально подготовиться, тогда всё пройдёт хорошо.</p></div><div style="display:contents" dir="auto"><blockquote id="2ff287db-8e0b-8058-be7f-e826c40818cd" class=""><em>Пока вы готовитесь, вас нельзя оценить. Пока в процессе, вы как бы защищены от критики.</em></blockquote></div><div style="display:contents" dir="auto"><p id="a14b3a58-db9a-44e5-aa5a-8de1e1e8de59" class="">Жизнь откладывается, потому что внутри <strong>нет веры в свою ценность. </strong>Кажется, нужно стать идеальной, чтобы иметь право на успех, любовь и деньги.</p></div><div style="display:contents" dir="ltr"><figure class="callout" style="white-space:pre-wrap;display:flex" id="2ff287db-8e0b-81f3-9aeb-e6bd42d283a1"><div style="width:100%"><div style="display:contents" dir="auto"><p id="2ff287db-8e0b-81f9-a17d-ca3a3142ea0b" class="">Но по факту жизнь откладывается, идеальные условия так и не наступают, а это может превратиться в бесконечную гонку за недостижимым стандартом. <strong>Как только вы приближаетесь к цели, планка поднимается выше, и снова оказываетесь «не готова» &#x1F612;</strong></p></div></div></figure></div><div style="display:contents" dir="auto"><h3 id="2ff287db-8e0b-81f0-b74e-e8e253f4e0bf" class=""><strong>Что важно понять</strong></h3></div><div style="display:contents" dir="auto"><p id="2ff287db-8e0b-8003-841a-cc00a716f653" class="">Вы живёте только один раз. То, что сейчас происходит, это не подготовка к жизни. Это уже сама жизнь. То, как вы живёте сейчас, это и есть сама жизнь. Её не получится заново переиграть, вернуться в школу или в университет и что-то переделать.</p></div><div style="display:contents" dir="auto"><blockquote id="2729fbeb-0159-4a7d-89c6-1b9a507e21e4" class=""><strong>Это не подготовка к жизни, а возможно, способ спрятаться от неё, потому что действие означает риск, а риск означает возможность провала.</strong></blockquote></div><div style="display:contents" dir="auto"><p id="bd74fc36-7e07-4b73-8222-d2aa660d3933" class="">&#x1F558; Где-то внутри вы знаете: время идёт, а вы стоите на месте. Смотрите, как другие двигаются вперёд, и злитесь на себя за бездействие.</p></div><div style="display:contents" dir="ltr"><figure class="callout" style="white-space:pre-wrap;display:flex" id="2ff287db-8e0b-808e-9188-d79ed1aca2e7"><div style="width:100%"><div style="display:contents" dir="auto"><p id="2ff287db-8e0b-807f-b689-da2a2d907090" class=""><strong>Важно просто без чувства вины понять:</strong> жизнь одна, и если всё вечно откладывать, то это будет как посуда в старом серванте, которую так и не использовали. Здесь важный инсайт: готовыми не становятся, начинают и учатся в процессе. Право на ошибку и несовершенство - это и есть право на жизнь.</p></div></div></figure></div><div style="display:contents" dir="auto"><hr id="2ff287db-8e0b-818d-a35a-dc055c25f78a"/></div><div style="display:contents" dir="auto"><h3 id="2ff287db-8e0b-81ef-a56c-d6268ad966dd" class=""><strong>Что объединяет все эти сценарии &#x1F447;&#x1F3FB;</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2ff287db-8e0b-8187-9d5a-c98a04cc552b" class="">Большинство людей даже не задумываются о том, <strong>как устроена их жизнь. </strong>Почему они принимают одни и те же решения и попадают в похожие ситуации снова и снова.</blockquote></div><div style="display:contents" dir="auto"><p id="2ff287db-8e0b-8041-b1ed-f0314124c292" class="">То, что вы дочитали до этого момента, по факту означает, что <strong>вы входите в те 10%, кто готов взглянуть на свою жизнь честно. </strong>Потому что большинство бросают начатое и не доходят до конца. Это требует смелости и готовности узнать правду о себе.</p></div><div style="display:contents" dir="auto"><p id="2ff287db-8e0b-809d-a296-c7038e639e99" class="">Когда сценарий становится осознанным, становится понятно: дело не в том, что вы слабая или недостаточно старались. Дело в том, что вы принимали решения в картине мира, которая сформировалась давно и больше не служит вашим реальным интересам.<br/></p></div><div style="display:contents" dir="auto"><h3 id="6d74564a-fb62-44f0-b5d7-e989878d99e9" class=""><strong>И теперь я предлагаю вам сделать следующий шаг.</strong></h3></div><div style="display:contents" dir="auto"><p id="48ac846c-a9f5-46e6-92a9-282c83b42872" class=""><em>Вы увидели, как работают эти стратегии. Возможно, узнали себя в одной из них или даже во всех трёх сразу. Теперь главный вопрос: что с этим делать дальше?</em></p></div><div style="display:contents" dir="ltr"><figure class="callout" style="white-space:pre-wrap;display:flex" id="2ff287db-8e0b-81b8-a7ce-c831d743b956"><div style="width:100%"><div style="display:contents" dir="auto"><p id="2ff287db-8e0b-81ef-b223-e05f07257936" class="">Понимание - это важно, но этого недостаточно. Сценарии работают не на уровне логики, а на уровне автоматических реакций. Именно поэтому нужна система, которая поможет не просто понять, а изменить</p></div></div></figure></div><div style="display:contents" dir="auto"><h3 id="22d365f1-5dc2-4719-a90b-b4b0e5d9bece" class=""><strong>Жду вас на практикуме «Путь к себе» </strong>&#x1F31F;</h3></div><div style="display:contents" dir="auto"><p id="2ff287db-8e0b-8021-8f9b-e5f95f9ec7dc" class="">Это <em><strong>вводная лёгкая программа</strong></em>, которая позволит вам увидеть корни ваших убеждений и повторяющихся сценариев. Вы разберётесь, откуда взялась стратегия «я должна всех спасать», «я недостаточно хорошая» или «вечный черновик». Поймёте, как эти сценарии влияют на вашу жизнь сейчас и что с этим делать</p></div><div style="display:contents" dir="auto"><hr id="2ff287db-8e0b-81fc-9e0f-c1c0cbd55e1e"/></div><div style="display:contents" dir="ltr"><figure class="callout" style="white-space:pre-wrap;display:flex" id="2ff287db-8e0b-8120-a0e5-e88995422ed2"><div style="width:100%"><div style="display:contents" dir="auto"><p id="2ff287db-8e0b-8107-8ca6-dc4f2ccb55ca" class=""><strong>Программа практикума:</strong></p></div></div></figure></div><div style="display:contents" dir="auto"><h2 id="2ff287db-8e0b-816b-83b7-e43c85b273ce" class=""><strong>&#x1F3AD; Модуль 1. Снятие масок - как вернуть контакт с собой</strong></h2></div><div style="display:contents" dir="ltr"><figure class="callout" style="white-space:pre-wrap;display:flex" id="2ff287db-8e0b-8045-bec4-e9d4d456c795"><div style="width:100%"><div style="display:contents" dir="auto"><p id="2ff287db-8e0b-8094-925b-da8ff443196d" class="">Станет ясно, что именно тормозит движение вперёд. Ключевые убеждения и навязанные рамки, которые влияют на отношения, карьеру и окружение. Разберём, почему внутри пусто и как страхи с виной отрезают путь к себе.</p></div></div></figure></div><div style="display:contents" dir="auto"><hr id="2ff287db-8e0b-8130-aa56-e583b16520cd"/></div><div style="display:contents" dir="auto"><h2 id="2ff287db-8e0b-812a-ba63-d9a09c5c16f2" class=""><strong>&#x1F54A;&#xFE0F; Модуль 2. Освобождение - от вины к внутренней опоре</strong></h2></div><div style="display:contents" dir="ltr"><figure class="callout" style="white-space:pre-wrap;display:flex" id="2ff287db-8e0b-80b6-94f3-c0766662c645"><div style="width:100%"><div style="display:contents" dir="auto"><p id="2ff287db-8e0b-803d-b641-e87a5b075123" class="">Работа с грузом стыда и вины, который мешает в обычной жизни. Почему возможности проходят мимо и откуда берётся саботаж. Научимся отделять свои настоящие желания от чужих ожиданий и отпускать старые обиды.</p></div></div></figure></div><div style="display:contents" dir="auto"><hr id="2ff287db-8e0b-81a8-8be9-dc20829f297b"/></div><div style="display:contents" dir="auto"><h2 id="2ff287db-8e0b-81b2-9305-fda6e972475f" class=""><strong>&#x2764;&#xFE0F; Модуль 3. Мягкая трансформация - как жить по-новому</strong></h2></div><div style="display:contents" dir="ltr"><figure class="callout" style="white-space:pre-wrap;display:flex" id="2ff287db-8e0b-8020-9814-c9a995c67209"><div style="width:100%"><div style="display:contents" dir="auto"><p id="2ff287db-8e0b-800d-b38e-f84ab3d84475" class="">Получите работающие приёмы, чтобы новые привычки закрепились надолго. Как выйти из режима «всегда начеку» и почувствовать опору в себе. Освоите способы меняться без надрыва. Создадите свою карту изменений с конкретными шагами.</p></div></div></figure></div><div style="display:contents" dir="auto"><h2 id="2ff287db-8e0b-81c9-a381-c3f1cbb70411" class=""><mark class="highlight-default_background"><strong><a href="https://ifpp-web.ru/waytoyourself?utm_source=arcticle1">&#x1F517; УЗНАТЬ ПОДРОБНЕЕ О ПРАКТИКУМЕ</a></strong></mark></h2></div><div style="display:contents" dir="auto"><hr id="2ff287db-8e0b-80f4-9121-c135f13719e2"/></div><div style="display:contents" dir="auto"><h2 id="2ff287db-8e0b-80f9-a05d-f50cbcba5b07" class="">&#x1F381; <strong>Бонусы доступны сразу после оплаты в личном кабинете:</strong></h2></div><div style="display:contents" dir="ltr"><figure class="callout" style="white-space:pre-wrap;display:flex" id="2ff287db-8e0b-803c-b1ef-dc39521f80f3"><div style="width:100%"><div style="display:contents" dir="auto"><p id="74fe5def-7ea6-441b-993f-e1e9b63040d6" class="">&#x1F4CC; <strong>Методичка «Как работает тревога и что с ней делать»</strong></p></div><div style="display:contents" dir="auto"><p id="32d53f15-6745-4a51-bdd2-14e51ab69437" class="">Почему тревога - это сигнал от психики. Как заметить её корни. Простые техники снижения тревожности. Способы разорвать мыслительную жвачку в голове.</p></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="callout" style="white-space:pre-wrap;display:flex" id="2ff287db-8e0b-806a-96d2-d3888b44b651"><div style="width:100%"><div style="display:contents" dir="auto"><p id="be28850c-e825-4a8f-92c5-346fabc97c17" class="">&#x1F4CC; <strong>Пособие по мотивации «Мягкая сила»</strong></p></div><div style="display:contents" dir="auto"><p id="602270da-407d-4018-bfeb-5b75a3118502" class="">Какие типы мотивации бывают и как определить свой. Что именно тормозит движение вперёд. Как разбудить энергию изнутри. Методы, которые помогают поднять себя, даже если «ничего не хочется».</p></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="callout" style="white-space:pre-wrap;display:flex" id="2ff287db-8e0b-8051-94f7-cdde921c519e"><div style="width:100%"><div style="display:contents" dir="auto"><p id="fd89393a-f549-452f-ae6b-3629b5ec60f7" class="">&#x1F4CC; <strong>Гайд «Психология денег: почему мы сами себя ограничиваем»</strong></p></div><div style="display:contents" dir="auto"><p id="35db90d3-b5e9-48ae-9ed7-b00cc8d9f10a" class="">Внутренние убеждения, которые влияют на заработок. Скрытые выгоды позиции «сидеть тихо». Что мешает просить достойную оплату труда.</p></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="callout" style="white-space:pre-wrap;display:flex" id="2ff287db-8e0b-8030-82ff-ec8517272bb5"><div style="width:100%"><div style="display:contents" dir="auto"><p id="1fc3ba30-494e-47c2-8531-3106198ef886" class="">&#x1F4CC; <strong>Руководство «Как говорить о чувствах и проживать конфликты»</strong></p></div><div style="display:contents" dir="auto"><p id="a4fb1a69-e8dd-402b-be31-6279ff38ae67" class="">Осознавать и называть чувства без вины и стыда. Говорить о важном, не разрушая близость. Проживать конфликты экологично, без молчанки и обид.</p></div></div></figure></div><div style="display:contents" dir="auto"><hr id="2ff287db-8e0b-80c7-99b7-e308c10ff0e6"/></div><div style="display:contents" dir="auto"><h2 id="2ff287db-8e0b-80d4-8bb4-f8d322bc1ace" class="">&#x23F3; <strong>Доступ к материалам: 2 месяца</strong></h2></div><div style="display:contents" dir="auto"><p id="2ff287db-8e0b-80fb-9aa3-dd2447e34351" class="">Пройти практикум можно буквально за пару вечеров. Мы специально увеличили срок доступа к записям, чтобы вы могли вернуться и пересмотреть уроки, когда это понадобится.</p></div><div style="display:contents" dir="auto"><h2 id="2ff287db-8e0b-80f3-8885-c968fddf6655" class=""><mark class="highlight-default_background"><strong><a href="https://ifpp-web.ru/waytoyourself?utm_source=arcticle1">&#x1F517; УЗНАТЬ ПОДРОБНЕЕ О ПРАКТИКУМЕ</a></strong></mark></h2></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body>
+<body class="bg-[#f9fcff]">
+  <div id="root"></div>
+
+  <script type="text/babel" data-type="module">
+    import React, { useState } from 'react';
+    import { createRoot } from 'react-dom/client';
+    import { 
+      Check, 
+      ArrowRight, 
+      Shield, 
+      Zap, 
+      Lock, 
+      Quote, 
+      Activity,
+      Heart,
+      Brain,
+      BookOpen
+    } from 'lucide-react';
+
+    // --- UI Components ---
+
+    const TildaCard = ({ title, children, className = "" }) => {
+      return (
+        <div className={`bg-white rounded-[20px] shadow-[0_10px_30px_rgba(0,0,0,0.03)] p-8 md:p-12 mb-8 ${className}`}>
+          {title && (
+            <h3 className="text-2xl md:text-3xl font-serif font-bold text-[#181818] mb-8 leading-tight">
+              {title}
+            </h3>
+          )}
+          <div className="text-[#181818] text-lg md:text-xl font-light leading-relaxed space-y-6">
+            {children}
+          </div>
+        </div>
+      );
+    };
+
+    const TildaAccentBlock = ({ title, children, icon: Icon }) => (
+      <div className="bg-[#eff7ff] rounded-[20px] p-8 md:p-10 my-8 relative overflow-hidden group transition-all duration-300 hover:shadow-sm">
+        <div className="absolute top-[-20px] right-[-20px] w-32 h-32 bg-gradient-to-br from-[#4c7fb0] to-[#93c5f5] opacity-10 rounded-full blur-2xl group-hover:opacity-20 transition-opacity" />
+        
+        <div className="relative z-10">
+          <div className="flex items-center gap-4 mb-6">
+            {Icon && <div className="p-2 bg-white rounded-full shadow-sm"><Icon className="w-6 h-6 text-[#4c7fb0]" /></div>}
+            {title && <h4 className="text-xl font-bold text-[#181818] font-serif">{title}</h4>}
+          </div>
+          <div className="text-[#181818] text-lg leading-relaxed font-light space-y-4">
+            {children}
+          </div>
+        </div>
+      </div>
+    );
+
+    const TildaChecklist = ({ items }) => {
+      return (
+        <div className="space-y-4">
+          {items.map((item, index) => (
+            <ChecklistItem key={index} text={item} />
+          ))}
+        </div>
+      );
+    };
+
+    const ChecklistItem = ({ text }) => {
+      const [checked, setChecked] = useState(false);
+      return (
+        <div 
+          onClick={() => setChecked(!checked)}
+          className="flex items-start gap-4 cursor-pointer group select-none"
+        >
+          <div className={`mt-1.5 w-6 h-6 flex-shrink-0 rounded-full border border-[#4c7fb0] flex items-center justify-center transition-all duration-300 ${
+            checked ? 'bg-[#4c7fb0]' : 'bg-transparent'
+          }`}>
+            <Check className={`w-3.5 h-3.5 transition-opacity ${checked ? 'text-white' : 'text-transparent'}`} />
+          </div>
+          <span className={`text-lg transition-colors duration-300 ${checked ? 'text-gray-400 line-through decoration-gray-300' : 'text-[#181818]'}`}>
+            {text}
+          </span>
+        </div>
+      );
+    };
+
+    const StepBlock = ({ number, title, text }) => (
+      <div className="relative pl-12 md:pl-0 pt-2 md:pt-0 mb-8 md:mb-0">
+        <div className="md:hidden absolute left-3 top-0 bottom-0 w-0.5 bg-[#eff7ff]" />
+        <div className="flex flex-col gap-3">
+          <div className="absolute md:relative left-0 top-0 text-5xl md:text-6xl font-serif font-black text-[#eff7ff] leading-none select-none">
+            0{number}
+          </div>
+          <div>
+            <h4 className="text-xl font-bold text-[#181818] mb-2">{title}</h4>
+            <p className="text-gray-600 font-light leading-relaxed">{text}</p>
+          </div>
+        </div>
+      </div>
+    );
+
+    const TildaButton = ({ text, primary = true }) => (
+      <button className={`
+        px-8 py-4 rounded-full text-lg font-bold tracking-wide transition-all duration-300 transform hover:-translate-y-1 w-full md:w-auto
+        ${primary 
+          ? 'bg-[#4c7fb0] text-white shadow-lg hover:shadow-[#4c7fb0]/40' 
+          : 'bg-white text-[#4c7fb0] border-2 border-[#4c7fb0] hover:bg-[#eff7ff]'}
+      `}>
+        {text}
+      </button>
+    );
+
+    function App() {
+      return (
+        <div className="min-h-screen bg-[#f9fcff] font-sans text-[#181818] selection:bg-[#eff7ff] selection:text-[#4c7fb0]">
+          
+          {/* --- Header Section --- [cite: 1, 2] */}
+          <div className="pt-20 pb-16 px-6 md:px-12 max-w-5xl mx-auto text-center">
+            <div className="inline-block mb-6 px-4 py-1.5 rounded-full border border-[#4c7fb0] text-[#4c7fb0] text-xs font-bold tracking-widest uppercase bg-white">
+             Разбор №1
+            </div>
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif font-black leading-[1.1] mb-8 text-[#181818]">
+              Почему я тащу всё на себе<br className="hidden md:block" /> <span className="text-[#4c7fb0]">и как начать жить иначе?</span>
+            </h1>
+            <p className="text-lg md:text-2xl font-light text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              Если вы задерживаетесь на работе, когда все коллеги давно ушли домой, выслушиваете подруг часами, хотя сами устали, или тянете всё на себе, а когда нужна помощь вам, рядом никого нет — эта статья для вас.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto px-6 pb-24 space-y-12">
+            
+            {/* --- Intro List --- [cite: 3] */}
+            <div className="bg-[#eff7ff] rounded-[30px] p-8 md:p-12">
+              <h3 className="font-serif font-bold text-2xl mb-6">Из этой статьи вы узнаете:</h3>
+              <ul className="space-y-4 text-lg font-light">
+                <li className="flex gap-4">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#4c7fb0] mt-2.5 flex-shrink-0"></div>
+                  <span>Как перестать автоматически соглашаться на всё подряд и научиться говорить «нет» без чувства вины</span>
+                </li>
+                <li className="flex gap-4">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#4c7fb0] mt-2.5 flex-shrink-0"></div>
+                  <span>Что делать, чтобы люди перестали воспринимать вашу помощь как должное и начали считаться с вашим мнением</span>
+                </li>
+                <li className="flex gap-4">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#4c7fb0] mt-2.5 flex-shrink-0"></div>
+                  <span>Откуда появляется ощущение, что отказ - это предательство, и как с этим работать</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* --- Block: Formation of Habit --- [cite: 4-10] */}
+            <TildaCard title="Как формируется привычка тянуть всё на себе">
+              <p>Обычно всё начинается с небольших уступок, которые кажутся разовыми.</p>
+              <p>Вы соглашаетесь задержаться на работе ради срочного проекта или подменяете коллегу, у которой возникли срочные дела. В этот момент вы ещё не понимаете, что создаёте определённый образ себя в глазах окружающих.</p>
+              <div className="border-l-4 border-[#4c7fb0] pl-6 italic text-gray-600">
+                Постепенно люди привыкают, что на вас можно положиться в любой ситуации. То, что поначалу было вашим выбором, превращается в негласное ожидание от вас.
+              </div>
+              <p>Со временем начальник уже не спрашивает, можете ли вы задержаться, он просто заходит с новой задачей. Вы понимаете, что домой уйдёте поздно, но отказать даже не приходит в голову.</p>
+              <p>Та же история повторяется в личных отношениях. Подруга звонит вечером просто выговориться, вы едва держитесь на ногах, но выслушиваете одни и те же жалобы, потому что кажется «ей сейчас тяжелее».</p>
+            </TildaCard>
+
+            {/* --- Block: Origins --- [cite: 11-14] */}
+            <TildaAccentBlock title="Откуда берётся эта привычка" icon={Heart}>
+              <p>Такое поведение обычно формируется не из-за того, что вы слишком добрая или чрезмерно ответственная, а из-за усвоенного способа получать любовь и внимание.</p>
+              <p>Если в семье тепло и одобрение доставались только за успехи, хорошее поведение и помощь взрослым, а любые проявления усталости, капризов или желания отдохнуть встречались раздражением или холодностью, ребёнок усваивает важное правило: чтобы быть любимой, нужно быть удобной и полезной.</p>
+              <p>Это не осознанное решение, а скорее автоматическая настройка, которая помогает адаптироваться к условиям, в которых растёт ребёнок.</p>
+              <p>Со временем эта настройка становится привычным способом взаимодействия с миром и переносится во взрослую жизнь, где продолжает работать по тому же принципу, хотя условия давно изменились.</p>
+            </TildaAccentBlock>
+
+            {/* --- Block: From Temp to Perm --- [cite: 15-24] */}
+            <TildaCard title="Как временная привычка становится постоянной">
+              <p>Во взрослом возрасте эта привычка продолжает работать, и вы можете плохо чувствовать свои границы или бояться отказать.. Например когда вы устали и хотите отдохнуть, внутри звучат привычные мысли: «Если не я, то кто?», «Мне проще самой сделать, чем объяснять», «Я справлюсь, я же сильная».</p>
+              <p>Вы автоматически берёте на себя лишнее, чтобы быть «хорошей и правильной» в глазах других людей. В этом и заключается ловушка: вы думаете, что даёте людям кредит своего внимания и сил, и надеетесь на отдачу.</p>
+              <p>Вы ждёте, что ваши старания оценят, что к вам начнут относиться бережно. А потом с удивлением обнаруживаете, что когда вам плохо или вы хотите отказать, вам говорят: «Ну ты же сама согласилась», «Никто тебя не заставлял», «Ты всегда это делала, почему теперь отказываешь?».</p>
+              
+              <div className="bg-gray-50 p-6 rounded-xl mt-6">
+                <p className="mb-4">Например, в отношениях с мужем вы можете замечать, что после работы он спокойно отдыхает, а вы продолжаете заниматься домашними делами. При этом вы злитесь не на него, а на себя за то, что опять не попросили о помощи.</p>
+                <p>Внутри будто нет разрешения сказать «мне тоже тяжело, мне нужно твоё участие», потому что просьба о помощи ощущается как признание слабости или неспособности справиться.</p>
+              </div>
+
+              <p className="mt-6">На работе это может выглядеть так: вы берёте дополнительные задачи или соглашаетесь выйти в выходной. В то время как другие коллеги спокойно уходят домой вовремя, и их никто не нагружает сверх нормы, потому что они не создали вокруг себя ожидание постоянной готовности помочь.</p>
+            </TildaCard>
+
+            {/* --- Block: Hard to say NO --- [cite: 25-31] */}
+            <TildaAccentBlock title="Почему так сложно отказать" icon={Lock}>
+              <p>Даже когда вы разумом понимаете, что имеете право отказывать и что ваши потребности так же важны, как потребности других людей, в момент реального разговора внутри может возникать сильное напряжение.</p>
+              <p>Вот что происходит внутри: с одной стороны, вы понимаете, что имеете право сказать «нет», что вы устали и заслуживаете отдыха. С другой стороны, внутри поднимается страх: «А вдруг человек в меня разочаруется?», «А вдруг отношения испортятся?», «А вдруг меня посчитают эгоисткой?», «А вдруг я потеряю его расположение?».</p>
+              <p>В этом и есть главная ловушка: когда внутри вас есть такие убеждения и страхи, люди могут этим пользоваться, часто даже не осознавая этого. А потом вам говорят: «Ты же сама согласилась», «Никто тебя не заставлял».</p>
+              <p>И формально это правда, но при этом игнорируется тот факт, что у вас просто не было внутреннего разрешения отказать. Именно поэтому вы часто ведёте себя не так, как хотите, а так, как кажется безопасным для той части вас, которая помнит опыт и пытается защитить от повторения болезненных ситуаций.</p>
+            </TildaAccentBlock>
+
+            {/* --- Block: Gratitude --- [cite: 32-35] */}
+            <TildaCard title="Ожидание благодарности, которой не приходит">
+              <p>За стремлением тянуть всё на себе часто стоит неосознанное ожидание: если я буду достаточно стараться, помогать и делать всё правильно, меня наконец-то заметят, оценят и начнут относиться с уважением и теплом.</p>
+              <p>Внутри происходит постоянный конфликт: вы отдаёте и отдаёте, надеясь, что это когда-нибудь вернётся, что вас оценят по достоинству.</p>
+              <p>Но в реальности окружающие обычно привыкают к вашей помощи и начинают воспринимать её как должное, а не как что-то особенное, за что нужно благодарить.</p>
+              <p>Более того, когда вам самой становится плохо и нужна поддержка, может оказаться, что рядом никто не готов включиться в ответ, потому что вы всегда были той, кто поддерживает других, и люди просто не привыкли видеть вас в роли нуждающейся в помощи.</p>
+            </TildaCard>
+
+            {/* --- Block: Checklist --- [cite: 36-38] */}
+            <TildaCard title="Проверьте себя: какие из этих убеждений вам знакомы?" className="border-l-8 border-[#eff7ff]">
+              <p className="mb-6">Часто за привычкой тянуть всё на себе стоят неосознаваемые правила и убеждения. Посмотрите, сколько из них вам знакомо:</p>
+              <TildaChecklist items={[
+                "«Никто не справится лучше меня»",
+                "«Проще самой сделать, чем объяснять»",
+                "«Если я откажу, меня посчитают плохой»",
+                "«Я должна быть сильной»",
+                "«Мои потребности не так важны»",
+                "«Если я попрошу о помощи, это покажет мою слабость»"
+              ]} />
+              <p className="mt-6 font-medium">Чем больше пунктов вы узнали в себе, тем глубже укоренилась привычка жертвовать собой ради других.</p>
+              <p className="mt-2 text-gray-600">Но важно понимать: эти убеждения можно изменить, если разобраться, откуда они взялись и как продолжают управлять вашей жизнью.</p>
+            </TildaCard>
+
+            {/* --- Transition --- [cite: 39-40] */}
+            <div className="py-8 text-center">
+              <h3 className="text-2xl md:text-3xl font-serif font-bold mb-6">Если я всё это понимаю, почему продолжаю делать то же самое?</h3>
+              <p className="text-xl font-light text-gray-600 max-w-2xl mx-auto">
+                Понимание - это важный, но только первый шаг. Привычка тянуть всё на себе работает не на уровне логики, а на уровне автоматических реакций.
+              </p>
+            </div>
+
+            {/* --- Promo / Workshop --- [cite: 40-47] */}
+            <div className="bg-[#181818] text-white rounded-[30px] p-8 md:p-16 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-[#4c7fb0] opacity-20 rounded-full blur-[100px]"></div>
+              
+              <div className="relative z-10">
+                <div className="text-center mb-12">
+                   <div className="inline-block mb-4 px-3 py-1 rounded border border-gray-600 text-gray-400 text-xs tracking-widest uppercase">
+                    Практикум
+                  </div>
+                  <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6 text-white">Путь к себе</h2>
+                  <p className="text-xl text-gray-300 font-light max-w-2xl mx-auto mb-4">Для тех, кто устал жить чужой жизнью</p>
+                  <p className="text-lg text-gray-400 font-light max-w-2xl mx-auto">
+                    Что это такое: технология, которая помогает снять чужие маски и начать жить по-новому. 3 модуля с уроками, практиками и заданиями.
+                  </p>
+                  <p className="text-md text-[#4c7fb0] mt-4 font-medium">
+                    Вы сможете пройти за пару вечеров или выходные
+                  </p>
+                </div>
+
+                {/* Results List */}
+                <div className="grid md:grid-cols-2 gap-8 mb-12 bg-white/5 p-8 rounded-[20px] backdrop-blur-sm">
+                  <div>
+                    <h4 className="text-xl font-bold mb-4 flex items-center gap-2"><Zap className="text-yellow-400 w-5 h-5"/> Какой результат вы сможете получить:</h4>
+                    <ul className="space-y-3 font-light text-gray-300">
+                      <li className="flex gap-3"><div className="w-1.5 h-1.5 rounded-full bg-white mt-2.5 flex-shrink-0"></div>Вы увидите, какие убеждения и правила влияют на вашу жизнь.</li>
+                      <li className="flex gap-3"><div className="w-1.5 h-1.5 rounded-full bg-white mt-2.5 flex-shrink-0"></div>Поймёте, откуда взялась привычка тянуть всё на себя, страх отказать или чувство вины за траты.</li>
+                      <li className="flex gap-3"><div className="w-1.5 h-1.5 rounded-full bg-white mt-2.5 flex-shrink-0"></div>Разберетесь с корнями, откуда это пошло и почему вы считаете, что именно так всё в жизни устроено.</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-bold mb-4 flex items-center gap-2"><Shield className="text-[#4c7fb0] w-5 h-5"/> А также:</h4>
+                    <ul className="space-y-3 font-light text-gray-300">
+                      <li className="flex gap-3"><div className="w-1.5 h-1.5 rounded-full bg-white mt-2.5 flex-shrink-0"></div>Увидите связь между детским опытом и тем, как принимаете решения сейчас.</li>
+                      <li className="flex gap-3"><div className="w-1.5 h-1.5 rounded-full bg-white mt-2.5 flex-shrink-0"></div>Получите инструменты, как выйти из замкнутого круга и начать жить по-новому.</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="flex justify-center mb-16">
+                   <TildaButton text="УЗНАТЬ ПОДРОБНЕЕ О ПРАКТИКУМЕ" primary={true} />
+                </div>
+
+                {/* Program Modules */}
+                <h3 className="text-2xl md:text-3xl font-serif font-bold mb-8 text-center text-white">Программа практикума:</h3>
+                <div className="grid gap-8 bg-white rounded-[20px] p-8 md:p-12 text-[#181818] mb-12">
+                   <StepBlock 
+                    number="1" 
+                    title="Модуль 1. Снятие масок" 
+                    text={
+                      <span>
+                        <strong>Для чего:</strong> понять, что именно тормозит движение вперёд.<br/>
+                        <strong>Результат:</strong> увидите ключевые убеждения и рамки, которые влияют на отношения, работу и решения
+                      </span>
+                    } 
+                  />
+                  <StepBlock 
+                    number="2" 
+                    title="Модуль 2. Освобождение" 
+                    text={
+                      <span>
+                        <strong>Для чего:</strong> избавиться от груза вины и страха.<br/>
+                        <strong>Результат:</strong> поймёте, почему отказываетесь от возможностей. Научитесь отделять свои желания от чужих ожиданий
+                      </span>
+                    } 
+                  />
+                  <StepBlock 
+                    number="3" 
+                    title="Модуль 3. Мягкая трансформация" 
+                    text={
+                       <span>
+                        <strong>Для чего:</strong> закрепить изменения надолго.<br/>
+                        <strong>Результат:</strong> получите работающие приёмы, как внедрять новое без надрывов и откатов назад
+                      </span>
+                    } 
+                  />
+                </div>
+
+                <div className="flex justify-center">
+                   <TildaButton text="ПРИНЯТЬ УЧАСТИЕ" primary={true} />
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      );
+    }
+
+    const root = createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+</body>
 </html>
